@@ -1,12 +1,9 @@
-# Your Name Here
+# Nikita Petrey
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section:
+# 11/04/2024
+# Lab 16
+# Lab Section: 16
 # Sources, people worked with, help given to:
-# your
-# comments
-# here
 
 
 # Write a function that will properly check strings to see if they are an int or float, and convert them if so
@@ -14,6 +11,28 @@
 # Other wise return the converted int or float 
 # Floats should only have one decimal point in them 
 
+def adv_convert(num):
+    negative = False
+    if num[0] == "-":
+        negative = True
+        num = num.replace("-", "")
+    
+    if "." in num:
+        numsplit = num.split(".") # [somenumber, somenumber]
+        if len(numsplit) == 2 and numsplit[0].isdigit() and numsplit[1].isdigit():
+            if negative:
+                return -1*float(num)
+            else:
+                return float(num)
+        else:
+            return False
+    elif num.isdigit():
+        if negative:
+            return -1*int(num)
+        else:
+            return int(num)
+    
+    return False
 
 print("*" * 75)
 
@@ -37,6 +56,26 @@ print("*" * 75)
 # Exit on the word exit
 # Remember all inputs are strings, but the function needs ints or floats
 # Call your function and print the resulting list
+ 
+def slope_intercept(m, b, lower_bound_x, upper_bound_x):
+    y = []
+    if type(lower_bound_x) is int and type(upper_bound_x) is int and lower_bound_x <= upper_bound_x:
+        for x in range(lower_bound_x, upper_bound_x):
+            y.append((m*x)+b)
+    else:
+        return False
+    return y
+
+while True:
+    m = input("Enter value for m:")
+    b = input("Enter value for b:")
+    lower_bound_x = input("Enter value for lower bound of x:")
+    upper_bound_x = input("Enter Value for upper bound of x:")
+    m = adv_convert(m)
+    b = adv_convert(b)
+    lower_bound_x = adv_convert(lower_bound_x)
+    upper_bound_x = adv_convert(upper_bound_x)
+    y = slope_intercept(m, b, lower_bound_x, upper_bound_x)
 
 print("*" * 75)
 

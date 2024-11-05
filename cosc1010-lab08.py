@@ -67,7 +67,9 @@ def slope_intercept(m, b, lower_bound_x, upper_bound_x):
     return y
 
 while True:
-    m = input("Enter value for m:")
+    m = input("Enter value for m(Enter exit to end inputs):")
+    if m == 'exit':
+        break
     b = input("Enter value for b:")
     lower_bound_x = input("Enter value for lower bound of x:")
     upper_bound_x = input("Enter Value for upper bound of x:")
@@ -76,6 +78,7 @@ while True:
     lower_bound_x = adv_convert(lower_bound_x)
     upper_bound_x = adv_convert(upper_bound_x)
     y = slope_intercept(m, b, lower_bound_x, upper_bound_x)
+    print(y)
 
 print("*" * 75)
 

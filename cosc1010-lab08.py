@@ -90,3 +90,28 @@ print("*" * 75)
 # Create a loop like above to prompt the user for input for the three values
 # Create a second function that just does the square root operation 
     # If the number you are trying to take the square root of is negative, return null
+
+def quadratic_formula(a, b, c):
+    f1 = []
+    f2 = []
+    if a == 0:
+        return False
+    else: 
+        p = -b / (2 * a)
+        q = (b ** 2 - 4 * a * c) / (4 * a ** 2)
+        f1.append(p + (q ** 0.5))
+        f2.append(p - (q ** 0.5))
+        return (f'The roots of the equation are {f1} and {f2}')
+
+while True:
+    a = input("Enter input for a(enter exit to quit):")
+    if a == 'exit':
+        break
+    b = input("Enter input for b:")
+    c = input("Enter input for c:")
+
+    a = adv_convert(a)
+    b = adv_convert(b)
+    c = adv_convert(c)
+    x = quadratic_formula(a, b, c)
+    print(x)
